@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Reisebüro Bratfisch · Reisen vergleichen</title>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B3B5C;--teal:#0E7C86;--mint:#5FD3D0;--coral:#FF6B5A;--pink:#E8467C;--sun:#FFB347;--bg:#F6F4EF;--ink:#13293D;--muted:#5B6B7A;--card:#fff;--r:18px}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:inherit}
+.demo{background:var(--ink);color:#fff;text-align:center;font-size:13px;padding:7px 12px}
+header{position:sticky;top:0;z-index:10;background:rgba(246,244,239,.9);backdrop-filter:blur(10px);border-bottom:1px solid #e7e2d8}
+.nav{max-width:1180px;margin:auto;display:flex;align-items:center;gap:14px;padding:12px 20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:48px;height:48px}
+.brand b{font-family:Fraunces,serif;font-size:22px;line-height:1;display:block;color:var(--navy)}
+.brand small{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);font-weight:700}
+.nav nav{margin-left:auto;display:flex;gap:22px;font-weight:500;font-size:15px}
+.nav nav a{text-decoration:none;color:var(--muted)}.nav nav a:hover{color:var(--navy)}
+.hero{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--navy) 0%,var(--teal) 70%,#16A3A0 100%);color:#fff;padding:70px 20px 140px}
+.hero:before{content:"";position:absolute;right:-120px;top:-120px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,var(--sun),var(--coral) 55%,transparent 70%);opacity:.55}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:90px;background:var(--bg);clip-path:path('M0 40 Q 180 0 360 40 T 720 40 T 1080 40 T 1440 40 T 1800 40 T 2160 40 V 90 H 0 Z')}
+.hero .in{position:relative;max-width:1180px;margin:auto}
+.hero h1{font-family:Fraunces,serif;font-size:clamp(36px,5.5vw,64px);line-height:1.02;margin:0 0 14px;max-width:760px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--sun),var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:19px;opacity:.9;max-width:600px;margin:0}
+.search{position:relative;z-index:2;max-width:1180px;margin:-110px auto 0;padding:0 20px}
+.box{background:var(--card);border-radius:24px;box-shadow:0 24px 60px rgba(11,59,92,.18);padding:10px 22px 22px}
+.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:1px solid #eee;margin:0 -8px 18px;padding:0 4px}
+.tab{appearance:none;border:0;background:none;font:600 15px Inter,sans-serif;color:var(--muted);padding:14px 16px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;display:flex;gap:8px;align-items:center}
+.tab.on{color:var(--navy);border-color:var(--coral)}
+form{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;align-items:end}
+.f{display:flex;flex-direction:column;gap:6px;grid-column:span 3}
+.f.s2{grid-column:span 2}
+label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+input,select{font:500 16px Inter,sans-serif;padding:13px 14px;border:1.5px solid #e2ded5;border-radius:12px;background:#FBFAF7;color:var(--ink);width:100%}
+input:focus,select:focus{outline:none;border-color:var(--teal);background:#fff}
+.go{grid-column:span 2;border:0;border-radius:12px;padding:15px;font:700 16px Inter,sans-serif;color:#fff;cursor:pointer;background:linear-gradient(90deg,var(--coral),var(--pink));box-shadow:0 8px 20px rgba(232,70,124,.35)}
+.go:hover{filter:brightness(1.05)}
+.hide{display:none!important}
+main{max-width:1180px;margin:auto;padding:0 20px}
+#results{margin-top:28px}
+.rhead{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+.rhead h2{font-family:Fraunces,serif;margin:0;font-size:26px;color:var(--navy)}
+.rhead span{color:var(--muted);font-size:14px}
+.list{display:grid;gap:12px;margin-top:14px}
+.row{display:grid;grid-template-columns:56px 1fr auto;gap:16px;align-items:center;background:#fff;border-radius:var(--r);padding:16px 18px;border:1px solid #ece8df;transition:.15s}
+.row:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(11,59,92,.08)}
+.pl{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;font:800 20px Fraunces,serif;color:#fff}
+.row h3{margin:0 0 3px;font-size:17px}.row p{margin:0;color:var(--muted);font-size:14px}
+.cta{text-decoration:none;font-weight:700;padding:11px 18px;border-radius:11px;background:var(--navy);color:#fff;white-space:nowrap}
+.cta:hover{background:var(--teal)}
+.ad{font-size:11px;color:var(--muted);display:block;text-align:right;margin-top:4px}
+section{margin:64px 0}
+.sh{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}
+.sh h2{font-family:Fraunces,serif;font-size:32px;margin:0;color:var(--navy)}
+.sh p{margin:0;color:var(--muted)}
+.dest{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.d{position:relative;height:220px;border-radius:var(--r);overflow:hidden;cursor:pointer;color:#fff;display:flex;align-items:flex-end;padding:16px;border:0;text-align:left;font:inherit}
+.d:before{content:"";position:absolute;inset:0;background:var(--g)}
+.d:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.45))}
+.d .e{position:absolute;top:14px;right:16px;font-size:44px;z-index:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,.2))}
+.d div{position:relative;z-index:1}.d b{font:800 22px Fraunces,serif;display:block}.d small{opacity:.9}
+.d:hover{transform:scale(1.015)}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.w{background:#fff;border-radius:var(--r);padding:24px;border:1px solid #ece8df}
+.w i{font-style:normal;font-size:28px;display:inline-grid;place-items:center;width:52px;height:52px;border-radius:14px;background:#FFF1EC;margin-bottom:12px}
+.w h3{margin:0 0 6px;font-size:18px}.w p{margin:0;color:var(--muted);line-height:1.5}
+.cta-band{background:linear-gradient(120deg,var(--coral),var(--pink));color:#fff;border-radius:26px;padding:38px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.cta-band h2{font-family:Fraunces,serif;margin:0 0 6px;font-size:30px}.cta-band p{margin:0;opacity:.92}
+.cta-band a{background:#fff;color:var(--pink);text-decoration:none;font-weight:700;padding:14px 22px;border-radius:12px}
+footer{background:var(--navy);color:#cfe3ea;margin-top:70px;padding:44px 20px}
+footer .in{max-width:1180px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;font-size:14px;line-height:1.6}
+footer b{color:#fff}footer a{color:#cfe3ea}
+@media(max-width:860px){.f,.f.s2,.go{grid-column:span 12}.nav nav{display:none}footer .in{grid-template-columns:1fr}.row{grid-template-columns:44px 1fr}.row .r{grid-column:1/-1}.cta{display:block;text-align:center}.pl{width:44px;height:44px}}
+</style>
+</head>
+<body>
+<div class="demo">Demo-Version · noch keine Partnerverträge aktiv · Links führen direkt zu den Anbietern</div>
+<header><div class="nav">
+  <a class="brand" href="#"><img src="logo.svg" alt="Reisebüro Bratfisch Logo"><span><b>Reisebüro Bratfisch</b><small>Vergleichen · Fliegen · Ankommen</small></span></a>
+  <nav><a href="#suche">Vergleich</a><a href="#ziele">Top-Ziele</a><a href="#warum">Warum wir</a><a href="#kontakt">Kontakt</a></nav>
+</div></header>
+
+<div class="hero"><div class="in">
+  <h1>Dein Urlaub.<br><em>Alle Anbieter.</em> Ein Klick.</h1>
+  <p>Flüge, Hotels, Pauschalreisen, Mietwagen und Erlebnisse: Reisebüro Bratfisch schickt deine Suche an die großen Portale, du vergleichst und buchst beim Besten.</p>
+</div></div>
+
+<div class="search" id="suche"><div class="box">
+  <div class="tabs" id="tabs">
+    <button class="tab on" data-t="pauschal">🏝️ Pauschalreisen</button>
+    <button class="tab" data-t="flug">✈️ Flüge</button>
+    <button class="tab" data-t="hotel">🏨 Hotels</button>
+    <button class="tab" data-t="auto">🚗 Mietwagen</button>
+    <button class="tab" data-t="erlebnis">🎟️ Erlebnisse</button>
+  </div>
+  <form id="f" autocomplete="off">
+    <div class="f" data-for="flug pauschal"><label for="von">Abflug ab</label>
+      <select id="von"><option value="BER">Berlin (BER)</option><option value="LEJ" selected>Leipzig/Halle (LEJ)</option><option value="DRS">Dresden (DRS)</option><option value="ERF">Erfurt (ERF)</option><option value="NUE">Nürnberg (NUE)</option><option value="FRA">Frankfurt (FRA)</option><option value="MUC">München (MUC)</option><option value="HAM">Hamburg (HAM)</option><option value="DUS">Düsseldorf (DUS)</option><option value="CGN">Köln/Bonn (CGN)</option><option value="STR">Stuttgart (STR)</option><option value="HAJ">Hannover (HAJ)</option></select></div>
+    <div class="f"><label for="ziel">Wohin?</label><input id="ziel" list="ziele" placeholder="z. B. Mallorca" value="Mallorca"><datalist id="ziele"></datalist></div>
+    <div class="f s2" data-for="flug pauschal hotel auto erlebnis"><label for="hin" id="lhin">Hinreise</label><input type="date" id="hin"></div>
+    <div class="f s2" data-for="flug pauschal hotel auto"><label for="rueck" id="lrueck">Rückreise</label><input type="date" id="rueck"></div>
+    <div class="f s2" data-for="flug pauschal hotel"><label for="pax">Reisende</label><select id="pax"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+    <button class="go" type="submit">Vergleichen</button>
+  </form>
+</div></div>
+
+<main>
+  <div id="results" class="hide">
+    <div class="rhead"><h2 id="rt"></h2><span id="rs"></span></div>
+    <div class="list" id="list"></div>
+    <p class="ad">* Werbelink: Reisebüro Bratfisch kann künftig eine Provision erhalten, für dich bleibt der Preis gleich.</p>
+  </div>
+
+  <section id="ziele">
+    <div class="sh"><div><h2>Top-Ziele</h2><p>Antippen, Suche ist vorausgefüllt.</p></div></div>
+    <div class="dest" id="dest"></div>
+  </section>
+
+  <section id="warum">
+    <div class="sh"><h2>Warum Reisebüro Bratfisch?</h2></div>
+    <div class="why">
+      <div class="w"><i>🔎</i><h3>Alles auf einen Blick</h3><p>Eine Eingabe, viele Portale. Kein Abtippen von Daten auf fünf Seiten.</p></div>
+      <div class="w"><i>💸</i><h3>Kostenlos für dich</h3><p>Du buchst direkt beim Anbieter, zum Preis des Anbieters. Keine Aufschläge von uns.</p></div>
+      <div class="w"><i>🤝</i><h3>Transparent</h3><p>Werbelinks sind gekennzeichnet. Wir zeigen Anbieter, keine erfundenen Preise oder Bewertungen.</p></div>
+      <div class="w"><i>📍</i><h3>Aus Gera</h3><p>Ein kleines Reisebüro aus Thüringen, mit Abflughäfen aus der Region als Standard.</p></div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="cta-band"><div><h2>Lieber persönlich planen?</h2><p>Schreib uns dein Wunschziel und Budget, wir melden uns mit Vorschlägen.</p></div><a href="mailto:hallo@reisebuero-bratfisch.de?subject=Reiseanfrage">Anfrage senden</a></div>
+  </section>
+</main>
+
+<footer><div class="in">
+  <div><img src="logo.svg" width="44" alt="" style="vertical-align:middle;margin-right:8px"><b>Reisebüro Bratfisch</b><br>Reisevergleich und Vermittlung aus Gera.<br><small>Demo-Version. Reisebüro Bratfisch ist kein Reiseveranstalter, Verträge kommen direkt mit dem jeweiligen Anbieter zustande.</small></div>
+  <div><b>Vergleich</b><br>Pauschalreisen<br>Flüge<br>Hotels<br>Mietwagen</div>
+  <div><b>Rechtliches</b><br>Impressum (folgt)<br>Datenschutz (folgt)<br>Hinweis zu Werbelinks</div>
+</div></footer>
+
+<script>
+const Z=[
+ {n:"Mallorca",e:"🏖️",s:"Spanien",iata:"PMI",g:"linear-gradient(135deg,#FFB347,#FF6B5A)"},
+ {n:"Teneriffa",e:"🌋",s:"Kanaren",iata:"TFS",g:"linear-gradient(135deg,#0E7C86,#5FD3D0)"},
+ {n:"Antalya",e:"🕌",s:"Türkei",iata:"AYT",g:"linear-gradient(135deg,#E8467C,#FFB347)"},
+ {n:"Hurghada",e:"🐠",s:"Ägypten",iata:"HRG",g:"linear-gradient(135deg,#0B3B5C,#16A3A0)"},
+ {n:"Dubai",e:"🏙️",s:"VAE",iata:"DXB",g:"linear-gradient(135deg,#C2884B,#FFB347)"},
+ {n:"Rom",e:"🏛️",s:"Italien",iata:"FCO",g:"linear-gradient(135deg,#B8452F,#FF8A5B)"},
+ {n:"Kreta",e:"⛵",s:"Griechenland",iata:"HER",g:"linear-gradient(135deg,#1E5AA8,#5FD3D0)"},
+ {n:"Wien",e:"🎡",s:"Österreich",iata:"VIE",g:"linear-gradient(135deg,#6B4FA0,#E8467C)"}
+];
+const $=id=>document.getElementById(id);
+$("ziele").innerHTML=Z.map(z=>`<option value="${z.n}">`).join("");
+$("dest").innerHTML=Z.map(z=>`<button class="d" style="--g:${z.g}" data-n="${z.n}"><span class="e">${z.e}</span><div><b>${z.n}</b><small>${z.s} · Preise live vergleichen</small></div></button>`).join("");
+const iso=d=>d.toISOString().slice(0,10);
+const t0=new Date();t0.setDate(t0.getDate()+21);const t1=new Date(t0);t1.setDate(t1.getDate()+7);
+$("hin").value=iso(t0);$("rueck").value=iso(t1);
+let tab="pauschal";
+function setTab(t){tab=t;document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on",b.dataset.t===t));
+ document.querySelectorAll("[data-for]").forEach(el=>el.classList.toggle("hide",!el.dataset.for.split(" ").includes(t)));
+ $("lhin").textContent=t==="auto"?"Abholung":t==="hotel"?"Check-in":t==="erlebnis"?"Datum":"Hinreise";
+ $("lrueck").textContent=t==="auto"?"Rückgabe":t==="hotel"?"Check-out":"Rückreise";}
+$("tabs").onclick=e=>{const b=e.target.closest(".tab");if(b)setTab(b.dataset.t)};
+$("dest").onclick=e=>{const b=e.target.closest(".d");if(!b)return;$("ziel").value=b.dataset.n;run();$("results").scrollIntoView({behavior:"smooth",block:"start"})};
+const enc=encodeURIComponent;
+function iataOf(q){const z=Z.find(z=>z.n.toLowerCase()===q.toLowerCase());return z?z.iata:null}
+function providers(){
+ const q=$("ziel").value.trim()||"Mallorca",von=$("von").value,hin=$("hin").value,rueck=$("rueck").value,pax=$("pax").value,iata=iataOf(q);
+ const yymmdd=d=>d.replaceAll("-","").slice(2);
+ const P={
+  pauschal:[
+   ["CHECK24 Urlaub","#0B5FA5","Pauschalreisen vieler Veranstalter","https://urlaub.check24.de/"],
+   ["TUI","#D40E14","Großer Veranstalter, viele Hotels","https://www.tui.com/"],
+   ["HolidayCheck","#0E7C86","Pauschalreisen mit Hotelbewertungen","https://www.holidaycheck.de/"],
+   ["ab-in-den-urlaub","#F28C00","Pauschal- und Last-Minute-Reisen","https://www.ab-in-den-urlaub.de/"],
+   ["Google Flüge + Hotel","#4285F4",`Flüge ${von} → ${q} selbst kombinieren`,`https://www.google.com/travel/flights?q=${enc(`Flüge von ${von} nach ${q} am ${hin} zurück ${rueck}`)}`]
+  ],
+  flug:[
+   ["Google Flüge","#4285F4",`${von} → ${q}, ${pax} Pers.`,`https://www.google.com/travel/flights?q=${enc(`Flights from ${von} to ${iata||q} on ${hin} through ${rueck}`)}&hl=de`],
+   ["Skyscanner","#0770E3",`${von} → ${q}`,iata?`https://www.skyscanner.de/transport/fluge/${von.toLowerCase()}/${iata.toLowerCase()}/${yymmdd(hin)}/${yymmdd(rueck)}/?adultsv2=${pax}`:"https://www.skyscanner.de/"],
+   ["KAYAK","#FF690F",`${von} → ${q}`,iata?`https://www.kayak.de/flights/${von}-${iata}/${hin}/${rueck}/${pax}adults`:"https://www.kayak.de/flights"],
+   ["CHECK24 Flüge","#0B5FA5","Flugvergleich","https://flug.check24.de/"]
+  ],
+  hotel:[
+   ["Booking.com","#003580",`${q}, ${hin} bis ${rueck}`,`https://www.booking.com/searchresults.de.html?ss=${enc(q)}&checkin=${hin}&checkout=${rueck}&group_adults=${pax}&no_rooms=1`],
+   ["Expedia","#1F2B6C",`${q}, ${pax} Erwachsene`,`https://www.expedia.de/Hotel-Search?destination=${enc(q)}&startDate=${hin}&endDate=${rueck}&adults=${pax}`],
+   ["Google Hotels","#4285F4",`Preise vieler Portale für ${q}`,`https://www.google.com/travel/search?q=${enc("Hotels "+q)}&hl=de`],
+   ["trivago","#007FAD","Hotel-Metasuche",`https://www.trivago.de/de/srl?search=${enc(q)}`]
+  ],
+  auto:[
+   ["CHECK24 Mietwagen","#0B5FA5",`Mietwagen in ${q}`,"https://www.check24.de/mietwagen/"],
+   ["billiger-mietwagen.de","#E30613",`Mietwagen in ${q}`,"https://www.billiger-mietwagen.de/"],
+   ["Sunny Cars","#F5A800","Mietwagen mit Rundum-Paket","https://www.sunnycars.de/"]
+  ],
+  erlebnis:[
+   ["GetYourGuide","#FF5533",`Touren und Tickets in ${q}`,`https://www.getyourguide.de/s/?q=${enc(q)}&date_from=${hin}`],
+   ["Tripadvisor","#00AA6C",`Aktivitäten in ${q}`,`https://www.tripadvisor.de/Search?q=${enc(q+" Aktivitäten")}`],
+   ["Viator","#186B6D",`Erlebnisse in ${q}`,`https://www.viator.com/de-DE/searchResults/all?text=${enc(q)}`]
+  ]
+ };
+ return {q,list:P[tab]};
+}
+const names={pauschal:"Pauschalreisen",flug:"Flüge",hotel:"Hotels",auto:"Mietwagen",erlebnis:"Erlebnisse"};
+function run(){const {q,list}=providers();
+ $("rt").textContent=`${names[tab]} nach ${q}`;
+ $("rs").textContent=`${list.length} Anbieter · Preise siehst du live beim Anbieter`;
+ $("list").innerHTML=list.map(([n,c,d,u])=>`<div class="row"><div class="pl" style="background:${c}">${n[0]}</div><div><h3>${n}</h3><p>${d}</p></div><div class="r"><a class="cta" href="${u}" target="_blank" rel="sponsored noopener">Angebote ansehen*</a></div></div>`).join("");
+ $("results").classList.remove("hide");}
+$("f").onsubmit=e=>{e.preventDefault();run();$("results").scrollIntoView({behavior:"smooth",block:"start"})};
+setTab("pauschal");
+</script>
+</body>
+</html>

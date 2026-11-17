@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFB347"/><stop offset=".55" stop-color="#FF6B5A"/><stop offset="1" stop-color="#E8467C"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0E7C86"/><stop offset="1" stop-color="#0B3B5C"/>
+    </linearGradient>
+    <clipPath id="c"><circle cx="60" cy="60" r="56"/></clipPath>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="url(#sun)"/>
+  <g clip-path="url(#c)">
+    <path d="M0 82 Q15 76 30 82 T60 82 T90 82 T120 82 V120 H0Z" fill="url(#sea)"/>
+    <path d="M0 92 Q15 86 30 92 T60 92 T90 92 T120 92" fill="none" stroke="#5FD3D0" stroke-width="2.5" opacity=".7"/>
+  </g>
+  <path d="M14 70 Q40 18 104 34" fill="none" stroke="#fff" stroke-width="2.6" stroke-dasharray="1 7" stroke-linecap="round" opacity=".95"/>
+  <g transform="translate(30 30) rotate(-14 30 22)">
+    <path d="M4 24 C14 8 40 6 54 22 L68 10 L64 24 L68 38 L54 27 C40 42 14 40 4 24Z" fill="#fff"/>
+    <path d="M26 22 L40 6 L46 8 L38 23Z" fill="#fff" stroke="#FF6B5A" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M26 26 L36 40 L41 39 L36 26Z" fill="#fff" stroke="#FF6B5A" stroke-width="1.2" stroke-linejoin="round"/>
+    <circle cx="14" cy="21" r="2.6" fill="#0B3B5C"/>
+    <path d="M20 16 Q23 24 20 32" fill="none" stroke="#FF6B5A" stroke-width="1.6" stroke-linecap="round"/>
+  </g>
+</svg>
